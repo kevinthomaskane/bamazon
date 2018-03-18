@@ -51,10 +51,15 @@ function lowInventory(){
 
 function addInventory(num, id){
     connection.query("UPDATE products SET stock_quantity = stock_quantity + ? WHERE ?", [num, {item_id: id}], function(err, res){
-
+        console.log("quantity updated")
     })
 }
 
+function addProduct(name, department, price, quantity){
+    connection.query("INSERT INTO products SET ?", {product_name: name, department_name: department, price: price, stock_quantity: quantity}, function(err, res){
+        console.log("item added")
+    })
+}
 function start(){
     inquirer.prompt([
         {
@@ -91,7 +96,6 @@ function start(){
                 ]).then(function(answer){
                     var id = arrayOfItems.indexOf(answer.products)+1
                     addInventory(answer.quantity, id);
-                    console.log("quantity updated")
                     start();
                 })
             });
@@ -99,7 +103,30 @@ function start(){
             
         }
         if (answer.options === "Add New Product"){
-            
+            inquirer.prompt([
+                {
+                    type: "input",
+                    name: "name",
+                    message: "What is the name of the product?"
+                },
+                {
+                    type: "input",
+                    name: "department",
+                    message: "What is the name of the department?"
+                },
+                {
+                    type: "input",
+                    name: "price",
+                    message: "What is the price of the product?"
+                },
+                {
+                    type: "input",
+                    name: "quantity",
+                    message: "How many do you want to stock?"
+                },
+            ]).then(function(answer){
+                addProduct(answer.name, answer.department, answer.price, answer.quantity);
+            })
         }
     })
 }
