@@ -35,13 +35,28 @@ function readDept(){
 }
 
 function salesByDept(dept){
-    connection.query("SELECT product_sales FROM products WHERE ?", {department_name: dept}, function(err, res){
+    connection.query("SELECT departments.department_name, departments.id, departments.over_head_costs, products.product_sales FROM departments INNER JOIN products ON products.department_name = departments.department_name", function(err, res){
+        console.log(res)
+        var array = [];
+        for (let i = 0; i <res.length; i++){
+            if (res[i].department_name === dept){
+                array.push(res[i])
+            }
+        }
+        var sum = 0;
+        for (let i = 0; i<array.length; i++){
+            sum += array[i].product_sales;
+        }
+        var profit = sum - array[0].over_head_costs
+        console.log("department_id | department_name | over_head_costs | product_sales | total_profit ")
+        console.log("---------------------------------------------------------------------------------")
+        console.log("   "+ array[0].id+ "        " + "        " + array[0].department_name + "      " + "       " + array[0].over_head_costs + "       "+ "       " + sum +"          " + profit)
+    })
+  
         var sum = 0;
         for (let i = 0; i<res.length; i++){
             sum += res[i].product_sales
-        }
-        console.log("total sales for " + dept + " is: $" + sum)
-    })
+        }  
     setTimeout(start, 3000)
 }
 

@@ -79,7 +79,9 @@ function start(){
             getItems(function(data){
                 var arrayOfItems = [];
                 for (let i = 0; i < data.length; i++){
+                    if (arrayOfItems.indexOf(data[i].product_name)=== -1){
                     arrayOfItems.push(data[i].product_name)
+                    }
                 }
                 inquirer.prompt([
                     {
