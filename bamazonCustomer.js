@@ -47,7 +47,16 @@ function updateQuantity(num, id) {
 
 function totalCost(num, id) {
     connection.query("SELECT price FROM products WHERE ?", { item_id: id }, function (err, res) {
-        console.log("your total price is: $" + (res[0].price * num))
+        var total = res[0].price * num
+        console.log(total)
+        console.log("your total price is: $" + total)
+        sumSales(total, id)
+    })
+}
+
+function sumSales(num, id){
+    connection.query("UPDATE products SET product_sales = product_sales + ? WHERE ?", [num, {item_id: id}], function(err, res){
+        console.log("sales updated")
     })
 }
 
