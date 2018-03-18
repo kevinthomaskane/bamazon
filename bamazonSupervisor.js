@@ -1,3 +1,4 @@
+
 var mysql = require("mysql");
 var inquirer = require("inquirer")
 var cTable = require('console.table');
@@ -59,11 +60,7 @@ function salesByDept(dept){
             }
         ])
     })
-  
-        var sum = 0;
-        for (let i = 0; i<res.length; i++){
-            sum += res[i].product_sales
-        }  
+    
     setTimeout(start, 5000)
 }
 

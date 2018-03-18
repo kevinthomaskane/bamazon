@@ -31,6 +31,7 @@ function display(){
         }
 
     })
+    start();
 }
 
 
@@ -47,18 +48,21 @@ function lowInventory(){
             console.log("only " + res[i].stock_quantity + " left for " + res[i].product_name )
         }
     })
+    start();
 }
 
 function addInventory(num, id){
     connection.query("UPDATE products SET stock_quantity = stock_quantity + ? WHERE ?", [num, {item_id: id}], function(err, res){
         console.log("quantity updated")
     })
+    start();
 }
 
 function addProduct(name, department, price, quantity){
     connection.query("INSERT INTO products SET ?", {product_name: name, department_name: department, price: price, stock_quantity: quantity}, function(err, res){
         console.log("item added")
     })
+    start();
 }
 function start(){
     inquirer.prompt([
@@ -72,8 +76,10 @@ function start(){
         if (answer.options === "View Products for Sale"){
             display();
         }
+
         if (answer.options === "View Low Inventory"){
             lowInventory();
+
         }
         if (answer.options === "Add to Inventory"){
             getItems(function(data){
@@ -98,7 +104,6 @@ function start(){
                 ]).then(function(answer){
                     var id = arrayOfItems.indexOf(answer.products)+1
                     addInventory(answer.quantity, id);
-                    start();
                 })
             });
             
