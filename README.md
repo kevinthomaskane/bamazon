@@ -6,10 +6,13 @@
 
 [Watch the video to see how the app works](https://www.youtube.com/watch?v=sxWO0kOMVxg&feature=youtu.be)
 
+
+##Customer Application
 <img src="./images/customer-view.png" width="400" height="400">
-<p>From the customer view, scroll through the items available and choose an item to purhcase.  Once you purchase, the database automatically records the sale</p>
-<img src="./images/customer-sql.png">
+<p>From the customer view, scroll through the items available and choose an item to purhcase.  Once you purchase, the database automatically records the sale.</p>
 
-<p>The manager application allows for more functionality.  View product inventory if it is low, add to inventories, and add new products</p>
+##Manager Application
+<p>The manager application allows for more functionality.  View product inventory if it is low, add to inventories, and add new products.</p>
 
-<p>The supervisor application allows the user to view the total sales of each department and create new departments</p>
+##Supervisor Application
+<p>The supervisor application allows the user to view the total sales of each department and create new departments.</p>
