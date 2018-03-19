@@ -7,7 +7,7 @@
 [Watch the video to see how the app works](https://www.youtube.com/watch?v=sxWO0kOMVxg&feature=youtu.be)
 
 
-##Customer Application
+<h1>Customer Application</h1>
 <img src="./images/customer-view.png" width="400" height="400">
 <p>From the customer view, scroll through the items available and choose an item to purhcase.  Once you purchase, the database automatically records the sale.</p>
 
