@@ -12,4 +12,4 @@
 
 <p>The manager application allows for more functionality.  View product inventory if it is low, add to inventories, and add new products</p>
 
-<The supervisor application allows the user to view the total sales of each department and create new departments</p>
+<p>The supervisor application allows the user to view the total sales of each department and create new departments</p>
