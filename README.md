@@ -9,7 +9,7 @@
 
 <h3>Customer Application</h3>
 <img src="./images/customer-view.png" width="400" height="400">
-<p>From the customer view, scroll through the items available and choose an item to purhcase.  Once you purchase, the database automatically records the sale.</p>
+<p>From the customer view, scroll through the items available and choose an item to purchase.  Once you purchase, the database automatically records the sale.</p>
 
 <h3>Manager Application</h3>
 <p>The manager application allows for more functionality.  View product inventory if it is low, add to inventories, and add new products.</p>
